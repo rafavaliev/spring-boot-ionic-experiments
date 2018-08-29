@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class BeerService {
@@ -26,5 +26,9 @@ export class BeerService {
       result = this.http.post(this.BEER_API, beer)
     }
     return result.catch(error => Observable.throw(error));
+  }
+
+  remove(id: string) {
+    return this.http.delete(this.BEER_API + '/' + id);
   }
 }
