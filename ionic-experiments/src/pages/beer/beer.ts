@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BeerService } from "../../providers/beer-service";
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {BeerService} from "../../providers/beer-service";
+import {GiphyService} from "../../providers/giphy-service";
 
 /**
  * Generated class for the BeerPage page.
@@ -19,13 +20,19 @@ export class BeerPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public beerService: BeerService) {
+              public beerService: BeerService,
+              public giphyService: GiphyService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BeerPage');
     this.beerService.getGoodBeers().subscribe(beers => {
       this.beers = beers;
+      for (const beer of this.beers) {
+        this.giphyService.get(beer.name).subscribe(url => {
+          beer.giphyUrl = url
+        });
+      }
       console.log(this.beers);
     })
   }
