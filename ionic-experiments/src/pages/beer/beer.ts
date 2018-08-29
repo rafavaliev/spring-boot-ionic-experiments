@@ -26,6 +26,7 @@ export class BeerPage {
     console.log('ionViewDidLoad BeerPage');
     this.beerService.getGoodBeers().subscribe(beers => {
       this.beers = beers;
+      console.log(this.beers);
     })
   }
 
