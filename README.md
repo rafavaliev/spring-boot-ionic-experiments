@@ -1,4 +1,4 @@
-# sprint-boot-ionic-experiments
+# Spring-Boot-Ionic-experiments
 Experiments with Spring Boot and Ionic
 
 
