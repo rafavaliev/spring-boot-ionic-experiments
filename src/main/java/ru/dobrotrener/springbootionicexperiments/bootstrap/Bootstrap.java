@@ -26,7 +26,6 @@ public class Bootstrap implements CommandLineRunner {
     }
 
     private void loadBeer() {
-        // Top beers from https://www.beeradvocate.com/lists/top/
         Stream.of("Kentucky Brunch Brand Stout", "Good Morning",
                 "Very Hazy", "King Julius",
                 "Budweiser", "Coors Light", "PBR")

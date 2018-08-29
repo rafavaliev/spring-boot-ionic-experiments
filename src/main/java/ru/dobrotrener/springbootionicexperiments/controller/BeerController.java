@@ -1,5 +1,6 @@
 package ru.dobrotrener.springbootionicexperiments.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @RestController
+@Slf4j
 public class BeerController {
     private final BeerRepository beerRepository;
 
@@ -27,6 +29,7 @@ public class BeerController {
     }
 
     private boolean isGreat(Beer beer) {
+        log.info("Is great: " + beer.getName());
         return !beer.getName().equals("Budweiser") &&
                 !beer.getName().equals("Coors Light") &&
                 !beer.getName().equals("PBR");
