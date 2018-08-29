@@ -36,6 +36,7 @@ import { BeerPageModule} from "../pages/beer/beer.module";
     TabsPage
   ],
   providers: [
+    HttpClientModule,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

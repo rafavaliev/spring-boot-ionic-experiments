@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {BeerService} from "../../providers/beer-service";
 import {GiphyService} from "../../providers/giphy-service";
+import {BeerModalPage} from "./beer-modal";
 
 /**
  * Generated class for the BeerPage page.
@@ -21,7 +22,8 @@ export class BeerPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public beerService: BeerService,
-              public giphyService: GiphyService) {
+              public giphyService: GiphyService,
+              public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -35,6 +37,13 @@ export class BeerPage {
       }
       console.log(this.beers);
     })
+  }
+
+  openModal(beerId) {
+    let modal = this.modalCtrl.create(BeerModalPage, beerId);
+    modal.present();
+    // refresh data after modal dismissed
+    modal.onDidDismiss(() => this.ionViewDidLoad())
   }
 
 }
