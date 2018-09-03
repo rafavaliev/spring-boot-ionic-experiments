@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { MbscModule } from '@mobiscroll/angular';
 import {NgModule} from '@angular/core';
 import {IonicPageModule} from 'ionic-angular';
 import {BeerPage} from './beer';
@@ -10,7 +12,9 @@ import {BeerModalPage} from "./beer-modal";
     BeerPage,
     BeerModalPage,
   ],
-  imports: [
+  imports: [ 
+    FormsModule, 
+    MbscModule,
     IonicPageModule.forChild(BeerPage),
   ],
   providers: [

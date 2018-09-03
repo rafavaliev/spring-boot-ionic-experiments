@@ -26,7 +26,8 @@ public class Bootstrap implements CommandLineRunner {
     }
 
     private void loadBeer() {
-        Stream.of("Kentucky Brunch Brand Stout", "Good Morning",
+        Stream.of("Kentucky Brunch Brand Stout",
+                "Good Morning",
                 "Very Hazy", "King Julius",
                 "Budweiser", "Coors Light", "PBR")
                 .forEach(name -> beerRepository.save(new Beer(name))
